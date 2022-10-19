@@ -1,0 +1,30 @@
+Source: ssh-import-id
+Section: misc
+Priority: optional
+Maintainer: Andrew Starr-Bochicchio <asb@debian.org>
+Build-Depends: debhelper (>= 10),
+               dh-python,
+               python3-all,
+               python3-distro,
+               python3-requests (>= 1.1.0),
+               python3-setuptools
+Standards-Version: 4.5.0
+Homepage: http://launchpad.net/ssh-import-id
+Vcs-Git: https://salsa.debian.org/debian/ssh-import-id.git
+Vcs-Browser: https://salsa.debian.org/debian/ssh-import-id
+
+Package: ssh-import-id
+Architecture: all
+Depends: ca-certificates,
+         openssh-client,
+         python3-requests (>= 1.1.0),
+         python3-distro,
+         wget,
+         ${misc:Depends},
+         ${python3:Depends}
+Recommends: openssh-server
+Description: securely retrieve an SSH public key and install it locally
+ This utility will securely contact a public keyserver (Launchpad.net by
+ default, but Github.com is also supported), retrieve one or more user's
+ public keys, and append these to the current user's ~/.ssh/authorized_keys
+ file.
